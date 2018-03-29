@@ -1,0 +1,11 @@
+{
+  "name": "api-example",
+  "version": "1.0.0",
+  "description": "A Simple CRUD of movies db to illustre an example of API",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Jérôme Devoucoux",
+  "license": "ISC"
+}
