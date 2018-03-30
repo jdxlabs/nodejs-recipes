@@ -12,7 +12,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/movies_db');
+mongoose.connect('mongodb://localhost:27017/moviedb');
 const Movies = require('./models/movies-mdl');
 
 app.use(bodyParser.urlencoded({ extended: true }));

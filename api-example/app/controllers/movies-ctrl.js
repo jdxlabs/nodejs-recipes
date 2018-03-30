@@ -2,10 +2,10 @@
 
 const mongoose = require('mongoose');
 
-const Movie = mongoose.model('movies');
+const Movies = mongoose.model('Movies');
 
 exports.listMovies = (req, res) => {
-  Movie.find({}, (err, task) => {
+  Movies.find({}, (err, task) => {
     if (err) {
       res.send(err);
     }
@@ -14,7 +14,7 @@ exports.listMovies = (req, res) => {
 };
 
 exports.createMovie = (req, res) => {
-  const movie = new Movie(req.body);
+  const movie = new Movies(req.body);
   movie.save((err, task) => {
     if (err) {
       res.send(err);
@@ -23,8 +23,8 @@ exports.createMovie = (req, res) => {
   });
 };
 
-exports.readMovie = (req, res) => {
-  Movie.findById(req.params.id, (err, task) => {
+exports.getMovie = (req, res) => {
+  Movies.findById(req.params.id, (err, task) => {
     if (err) {
       res.send(err);
     }
@@ -33,7 +33,7 @@ exports.readMovie = (req, res) => {
 };
 
 exports.updateMovie = (req, res) => {
-  Movie.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, task) => {
+  Movies.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, task) => {
     if (err) {
       res.send(err);
     }
@@ -42,7 +42,7 @@ exports.updateMovie = (req, res) => {
 };
 
 exports.deleteMovie = function (req, res) {
-  Movie.remove({
+  Movies.remove({
     _id: req.params.id
   }, (err, movie) => {
     if (err) {
