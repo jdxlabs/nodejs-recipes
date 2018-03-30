@@ -9,10 +9,10 @@ const bodyParser = require('body-parser');
 
 const { logger } = config;
 const app = express();
-const port = process.env.PORT || 3000;
+const port = config.get('PORT') || 3000;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/moviedb');
+mongoose.connect(`mongodb://${config.get('MONGO_HOST')}:${config.get('MONGO_PORT')}/${config.get('MONGO_DBNAME')}`);
 const Movies = require('./models/movies-mdl');
 
 app.use(bodyParser.urlencoded({ extended: true }));

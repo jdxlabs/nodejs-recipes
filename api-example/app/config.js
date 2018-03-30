@@ -10,4 +10,5 @@ const logger = new (winston.Logger)({
   ]
 });
 
-module.exports.logger = logger;
+exports.get = p => process.env[p];
+exports.logger = logger;
